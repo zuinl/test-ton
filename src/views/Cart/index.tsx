@@ -1,11 +1,25 @@
 import React from 'react';
 import styles from './styles'
-import { Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import Header from '../../components/Header';
 
-export default function Cart() {
+interface CartScreenProps {
+  route?: any,
+  navigation?: any
+}
+
+export default function Cart(props: CartScreenProps) {
   return (
     <View style={styles.container}>
-      <Text>Cart screen</Text>
+      <Header
+        navigation={props.navigation}
+        route={props.route} />
+      
+      <ScrollView>
+        <View style={styles.productsList}>
+          
+        </View>
+      </ScrollView>
     </View>
   );
 }

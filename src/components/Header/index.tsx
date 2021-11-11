@@ -1,6 +1,10 @@
 import React from 'react';
-import { getHeaderTitle } from '@react-navigation/elements';
-import { StyleSheet, View, Pressable, Text } from 'react-native';
+import { View, Pressable, Text } from 'react-native';
+
+import styles from './styles'
+
+import { useCart } from '../../contexts/CartContext';
+
 import { FiArrowLeft, FiShoppingCart } from 'react-icons/fi'
 
 interface HeaderProps {
@@ -9,19 +13,27 @@ interface HeaderProps {
 }
 
 export default function Header(props: HeaderProps) {
+  const {
+    IDsList
+  } = useCart()
+
   const onCartClick = () => {
+    if(!props.route) return
+
     if(props.route.name === "Cart") return
 
     props.navigation.navigate("Cart")
   }
 
   const goBack = () => {
+    if(!props.navigation) return
+    
     props.navigation.goBack()
   }
 
   return (
     <View style={styles.container}>
-      {props.navigation.canGoBack() &&
+      {props.navigation?.canGoBack() &&
         <Pressable onPress={goBack}
           style={styles.arrowBox}>
           <View>
@@ -37,7 +49,7 @@ export default function Header(props: HeaderProps) {
 
           <View style={styles.cartIconBoxBadge}>
             <Text style={styles.cartIconBoxText}>
-              3
+              {IDsList.length}
             </Text>
           </View>
         </View>
@@ -45,37 +57,3 @@ export default function Header(props: HeaderProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#00bf00',
-    alignItems: 'center',
-    padding: "1rem"
-  },
-  arrowBox: {
-    flex: 1
-  },
-  cartIconBox: {
-    flex: 1,
-    position: "relative",
-    alignItems: "flex-end"
-  },
-  cartIconBoxBadge: {
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "red",
-    position: "absolute",
-    top: "-6px",
-    right: "-6px",
-    width: "16px",
-    height: "16px",
-    borderRadius: 8
-  },
-  cartIconBoxText: {
-    color: "#FFF",
-    fontWeight: "bold",
-    fontSize: 10
-  }
-});

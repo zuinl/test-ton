@@ -1,26 +1,69 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { View, Text, Pressable, Image } from 'react-native';
 
-interface ProductCardProps {
-    name: string,
-    image?: any,
-    id: any
-}
+import { useCart } from '../../contexts/CartContext';
+import useAlert from '../../utils/useAlert';
 
-export default function ProductCard(props: ProductCardProps) {
+import ProductProps from '../../interfaces/Product';
+
+import commonStyles from '../../styles/commonStyles';
+import styles from './styles';
+
+export default function ProductCard(props: ProductProps) {
+  const {
+    IDsList,
+    addProduct,
+    removeProduct
+  } = useCart()
+  
+  const onAdd = () => {
+    addProduct(props)
+
+    useAlert({
+      title: "Adicionado",
+      message: "Produto adicionado ao carrinho"
+    })
+  }
+
+  const onRemove = () => {
+    removeProduct(props.id)
+
+    useAlert({
+      title: "Removido",
+      message: "Produto removido do carrinho"
+    })
+  }
+
+  const image = props.image ? 
+    require(props.image) : 
+    require("../../../assets/photo_placeholder.png")
+  
   return (
     <View style={styles.container}>
-      <Text>Oi</Text>
+      <Image
+        style={styles.image}
+        source={image}
+      />
+
+      <Text style={styles.name}>
+        {props.name}
+      </Text>
+
+      {IDsList.includes(props.id) ?
+        <Pressable style={commonStyles.dangerButton}
+          onPress={onRemove}>
+          <Text style={commonStyles.buttonText}>
+            Remover do carrinho
+          </Text>
+        </Pressable>
+      :
+        <Pressable style={commonStyles.primaryButton}
+          onPress={onAdd}>
+          <Text style={commonStyles.buttonText}>
+            Adicionar ao carrinho
+          </Text>
+        </Pressable>
+      }
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: "50%",
-    flexDirection: 'row',
-    backgroundColor: 'red',
-    alignItems: 'center',
-    padding: "1rem"
-  }
-});
