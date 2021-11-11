@@ -22,15 +22,15 @@ export default function CartProductCard(props: ProductProps) {
     })
   }
 
-  const image = props.image ? 
-    require(props.image) : 
+  const imageSource = props.image ?
+    { uri: props.image } :
     require("../../../assets/photo_placeholder.png")
   
   return (
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={image}
+        source={imageSource}
       />
 
       <Text style={styles.name}>

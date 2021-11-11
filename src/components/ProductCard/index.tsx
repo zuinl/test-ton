@@ -33,7 +33,7 @@ export default function ProductCard(props: ProductProps) {
       message: "Produto removido do carrinho"
     })
   }
-
+  
   const imageSource = props.image ?
     { uri: props.image } :
     require("../../../assets/photo_placeholder.png")
