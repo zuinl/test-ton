@@ -4,13 +4,17 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#FFF',
-      justifyContent: 'flex-start'
+      justifyContent: 'flex-start',
     },
-    productsList: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
+    mainContent: {
       paddingRight: 10,
       paddingLeft: 10
+    },
+    topText: {
+      fontSize: 14,
+      fontWeight: "bold",
+      marginTop: 12,
+      marginBottom: 18
     }
 });
 
