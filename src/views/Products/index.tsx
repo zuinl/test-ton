@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import styles from './styles'
 import { ScrollView, View } from 'react-native';
 import ProductCard from '../../components/ProductCard';
-import Header from '../../components/Header';
 import axios from 'axios'
 import useAlert from '../../utils/useAlert';
 
@@ -14,7 +13,7 @@ interface ProductsScreenProps {
 export default function Products(props: ProductsScreenProps) {
   const [products, setProducts] = useState([] as Array<any>)
 
-  const getFlags = () => {
+  const getProducts = () => {
     axios.get("https://api.github.com/gists/1b6459152bfb1160a317b86395eb7013")
     .then(({ data }) => {
       let parsedProducts = JSON.parse(data.files['mockProducts.json'].content)
@@ -32,24 +31,20 @@ export default function Products(props: ProductsScreenProps) {
   }
 
   useEffect(() => {
-    getFlags()
-  }, [getFlags])
+    getProducts()
+  }, [getProducts])
 
   return (
     <View style={styles.container}>
-      <Header
-        navigation={props.navigation}
-        route={props.route} />
-      
-      <ScrollView>
-        <View style={styles.productsList}>
-          {products.map(product => {
-            return (
-              <ProductCard {...product}
-                key={product.id} />
-            )
-          })}
-        </View>
+      <ScrollView
+        contentContainerStyle={styles.productsList}
+        showsVerticalScrollIndicator={false}>
+        {products.map(product => {
+          return (
+            <ProductCard {...product}
+              key={product.id} />
+          )
+        })}
       </ScrollView>
     </View>
   );

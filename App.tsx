@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Products from './src/views/Products';
 import Cart from './src/views/Cart';
 import { CartContextProvider } from './src/contexts/CartContext';
+import Header from './src/components/Header';
 
 const Stack = createStackNavigator()
 
@@ -14,7 +15,8 @@ export default function App() {
         <Stack.Navigator
           initialRouteName="Products"
           screenOptions={{
-            headerShown: false
+            headerMode: "float",
+            header: (props: any) => <Header {...props} />
           }}
         >
           <Stack.Screen name="Products" component={Products}

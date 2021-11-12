@@ -9,8 +9,7 @@ const styles = StyleSheet.create({
     productsList: {
       flexDirection: 'row',
       flexWrap: 'wrap',
-      paddingRight: 10,
-      paddingLeft: 10
+      paddingVertical: 10
     }
 });
 

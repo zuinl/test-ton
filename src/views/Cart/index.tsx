@@ -1,16 +1,10 @@
 import React from 'react';
 import styles from './styles'
 import { ScrollView, View, Text, Pressable } from 'react-native';
-import Header from '../../components/Header';
 import { useCart } from '../../contexts/CartContext';
 import CartProductCard from '../../components/CartProductCard';
 
-interface CartScreenProps {
-  route?: any,
-  navigation?: any
-}
-
-export default function Cart(props: CartScreenProps) {
+export default function Cart() {
   const {
     products,
     clearCart
@@ -18,10 +12,6 @@ export default function Cart(props: CartScreenProps) {
 
   return (
     <View style={styles.container}>
-      <Header
-        navigation={props.navigation}
-        route={props.route} />
-
       <View style={styles.mainContent}>
         <Text style={styles.topText}>
           {products.length} produto{products.length > 1 && "s"} adicionado{products.length > 1 && "s"}:

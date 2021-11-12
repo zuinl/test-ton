@@ -4,10 +4,11 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
       height: 50,
+      width: "100%",
       flexDirection: 'row',
       backgroundColor: '#00bf00',
       alignItems: 'center',
-      padding: "1rem"
+      padding: 10
     },
     arrowBox: {
       flex: 1

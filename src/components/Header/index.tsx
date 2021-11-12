@@ -8,8 +8,8 @@ import { useCart } from '../../contexts/CartContext';
 import { FiArrowLeft, FiShoppingCart } from 'react-icons/fi'
 
 interface HeaderProps {
-    navigation?: any,
-    route?: any
+  route?: any,
+  navigation?: any
 }
 
 export default function Header(props: HeaderProps) {
@@ -18,9 +18,9 @@ export default function Header(props: HeaderProps) {
   } = useCart()
 
   const onCartClick = () => {
-    if(!props.route) return
+    if(!props.navigation) return
 
-    if(props.route.name === "Cart") return
+    if(props.route?.name === "Cart") return
 
     props.navigation.navigate("Cart")
   }
