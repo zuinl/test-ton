@@ -49,6 +49,10 @@ export default function ProductCard(props: ProductProps) {
         {props.name}
       </Text>
 
+      <Text style={styles.price}>
+        {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: props.currency }).format(props.price)}
+      </Text>
+
       {IDsList.includes(props.id) ?
         <Pressable style={commonStyles.dangerButton}
           onPress={onRemove}>

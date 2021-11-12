@@ -37,6 +37,10 @@ export default function CartProductCard(props: ProductProps) {
         {props.name}
       </Text>
 
+      <Text style={styles.price}>
+        {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: props.currency }).format(props.price)}
+      </Text>
+
       <Pressable onPress={onRemove}
         style={styles.iconBox}>
         <View>

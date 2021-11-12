@@ -14,6 +14,12 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 14,
+    fontWeight: "bold",
+    textAlign: "left",
+    marginRight: 10
+  },
+  price: {
+    fontSize: 16,
     fontWeight: "500",
     textAlign: "left"
   },
