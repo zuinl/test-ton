@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles'
-import { ScrollView, View, Text } from 'react-native';
+import { ScrollView, View, Text, Pressable } from 'react-native';
 import Header from '../../components/Header';
 import { useCart } from '../../contexts/CartContext';
 import CartProductCard from '../../components/CartProductCard';
@@ -12,7 +12,8 @@ interface CartScreenProps {
 
 export default function Cart(props: CartScreenProps) {
   const {
-    products
+    products,
+    clearCart
   } = useCart()
 
   return (
@@ -23,7 +24,7 @@ export default function Cart(props: CartScreenProps) {
 
       <View style={styles.mainContent}>
         <Text style={styles.topText}>
-          {products.length} produtos adicionados:
+          {products.length} produto{products.length > 1 && "s"} adicionado{products.length > 1 && "s"}:
         </Text>
 
         <ScrollView>
@@ -34,6 +35,14 @@ export default function Cart(props: CartScreenProps) {
                   key={product.id} />
               )
             })}
+
+            {products.length > 0 &&
+              <Pressable onPress={clearCart}>
+                <Text style={styles.dangerText}>
+                  Limpar carrinho
+                </Text>
+              </Pressable>
+            }
           </View>
         </ScrollView>
       </View>

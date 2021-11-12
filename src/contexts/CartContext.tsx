@@ -9,7 +9,8 @@ const CartContext = createContext({
   IDsList: [] as Array<number>,
   products: [] as Array<any>,
   addProduct: (product: ProductProps) => { },
-  removeProduct: (productID: number) => { }
+  removeProduct: (productID: number) => { },
+  clearCart: () => { }
 });
 
 export const CartContextProvider = (props: CartContextProps) => {
@@ -48,13 +49,19 @@ export const CartContextProvider = (props: CartContextProps) => {
       setIDsList(updatedIDsList)
   }
 
+  const clearCart = () => {
+    setProducts([])
+    setIDsList([])
+  }
+
   return (
     <CartContext.Provider
       value={{
         IDsList,
         products,
         addProduct,
-        removeProduct
+        removeProduct,
+        clearCart
       }}
     >
       {props.children}

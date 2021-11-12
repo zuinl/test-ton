@@ -15,6 +15,13 @@ const styles = StyleSheet.create({
       fontWeight: "bold",
       marginTop: 12,
       marginBottom: 18
+    },
+    dangerText: {
+      fontSize: 12,
+      fontWeight: "500",
+      marginTop: 16,
+      color: "red",
+      textAlign: "right"
     }
 });
 
