@@ -1,3 +1,5 @@
+import 'intl'
+import 'intl/locale-data/jsonp/pt-BR'
 import React from 'react'
 import { View, Text, Pressable, Image } from 'react-native'
 
@@ -7,9 +9,9 @@ import CartProductProps from '../../interfaces/CartProduct'
 
 import useAlert from '../../utils/useAlert'
 
-import { FiXCircle } from 'react-icons/fi'
-
 import styles from './styles'
+
+import { AntDesign } from '@expo/vector-icons'
 
 export default function CartProductCard(props: CartProductProps) {
   const {
@@ -47,7 +49,7 @@ export default function CartProductCard(props: CartProductProps) {
       <Pressable onPress={onRemove}
         style={styles.iconBox}>
         <View>
-          <FiXCircle size="26" color="red" />
+          <AntDesign name="closecircleo" size={28} color="red" />
         </View>
       </Pressable>
     </View>

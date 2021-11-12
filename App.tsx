@@ -5,6 +5,7 @@ import Products from './src/views/Products';
 import Cart from './src/views/Cart';
 import { CartContextProvider } from './src/contexts/CartContext';
 import Header from './src/components/Header';
+import { StatusBar } from 'expo-status-bar';
 
 const Stack = createStackNavigator()
 
@@ -29,6 +30,9 @@ export default function App() {
             }} />
         </Stack.Navigator>
       </NavigationContainer>
+
+      <StatusBar style="light"
+        backgroundColor="#008f00" />
     </CartContextProvider>
   );
 }

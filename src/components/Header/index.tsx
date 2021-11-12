@@ -5,7 +5,7 @@ import styles from './styles'
 
 import { useCart } from '../../contexts/CartContext';
 
-import { FiArrowLeft, FiShoppingCart } from 'react-icons/fi'
+import { AntDesign } from '@expo/vector-icons'
 
 interface HeaderProps {
   route?: any,
@@ -37,7 +37,7 @@ export default function Header(props: HeaderProps) {
         <Pressable onPress={goBack}
           style={styles.arrowBox}>
           <View>
-            <FiArrowLeft size="22" color="#FFF" />
+            <AntDesign name="arrowleft" size={30} color="#FFF" />
           </View>
         </Pressable>
       }
@@ -45,7 +45,7 @@ export default function Header(props: HeaderProps) {
       <Pressable onPress={onCartClick}
         style={styles.cartIconBox}>
         <View>
-          <FiShoppingCart size="22" color="#FFF" />
+          <AntDesign name="shoppingcart" size={30} color="#FFF" />
 
           <View style={styles.cartIconBoxBadge}>
             <Text style={styles.cartIconBoxText}>

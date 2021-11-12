@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
 
 
 const styles = StyleSheet.create({
@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       backgroundColor: '#00bf00',
       alignItems: 'center',
-      padding: 10
+      padding: 10,
+      marginTop: StatusBar.currentHeight
     },
     arrowBox: {
       flex: 1
@@ -23,10 +24,10 @@ const styles = StyleSheet.create({
       justifyContent: "center",
       backgroundColor: "red",
       position: "absolute",
-      top: "-6px",
-      right: "-6px",
-      width: "16px",
-      height: "16px",
+      top: 0,
+      right: 0,
+      width: 16,
+      height: 16,
       borderRadius: 8
     },
     cartIconBoxText: {

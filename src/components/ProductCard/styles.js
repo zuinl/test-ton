@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 8
   },
+  quantityIconBox: {
+    height: 25
+  },
   quantityText: {
     fontWeight: "bold",
     fontSize: 14

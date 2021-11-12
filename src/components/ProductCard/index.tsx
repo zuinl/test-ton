@@ -1,3 +1,5 @@
+import 'intl'
+import 'intl/locale-data/jsonp/pt-BR'
 import React, { useState } from 'react'
 import { View, Text, Pressable, Image } from 'react-native'
 
@@ -8,7 +10,8 @@ import ProductProps from '../../interfaces/Product'
 
 import commonStyles from '../../styles/commonStyles'
 import styles from './styles'
-import { FiMinus, FiPlus } from 'react-icons/fi'
+
+import { AntDesign } from '@expo/vector-icons'
 
 export default function ProductCard(props: ProductProps) {
   const [quantity, setQuantity] = useState(1)
@@ -71,14 +74,16 @@ export default function ProductCard(props: ProductProps) {
 
       {!IDsList.includes(props.id) &&
         <View style={styles.quantityBox}>
-          <Pressable onPress={minusQuantity}>
-            <FiMinus size="18" color="#000" />
+          <Pressable onPress={minusQuantity}
+            style={styles.quantityIconBox}>
+            <AntDesign name="minus" size={22} color="#000" />
           </Pressable>
           <Text>
             {quantity}
           </Text>
-          <Pressable onPress={plusQuantity}>
-            <FiPlus size="18" color="#000" />
+          <Pressable onPress={plusQuantity}
+            style={styles.quantityIconBox}>
+            <AntDesign name="plus" size={22} color="#000" />
           </Pressable>
         </View>
       }
