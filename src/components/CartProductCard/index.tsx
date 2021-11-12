@@ -2,13 +2,12 @@ import React from 'react';
 import { FiXCircle } from 'react-icons/fi';
 import { View, Text, Pressable, Image } from 'react-native';
 import { useCart } from '../../contexts/CartContext';
-
-import ProductProps from '../../interfaces/Product';
+import CartProductProps from '../../interfaces/CartProduct';
 import useAlert from '../../utils/useAlert';
 
 import styles from './styles';
 
-export default function CartProductCard(props: ProductProps) {
+export default function CartProductCard(props: CartProductProps) {
   const {
     removeProduct
   } = useCart()
@@ -34,11 +33,11 @@ export default function CartProductCard(props: ProductProps) {
       />
 
       <Text style={styles.name}>
-        {props.name}
+        {`${props.name} (${props.quantity})`}
       </Text>
 
       <Text style={styles.price}>
-        {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: props.currency }).format(props.price)}
+        {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: props.currency }).format(props.price * props.quantity)}
       </Text>
 
       <Pressable onPress={onRemove}

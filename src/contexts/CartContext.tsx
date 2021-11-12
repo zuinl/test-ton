@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import ProductProps from '../interfaces/Product'
+import CartProductProps from '../interfaces/CartProduct';
 
 interface CartContextProps {
     children: any
@@ -8,7 +8,7 @@ interface CartContextProps {
 const CartContext = createContext({
   IDsList: [] as Array<number>,
   products: [] as Array<any>,
-  addProduct: (product: ProductProps) => { },
+  addProduct: (product: CartProductProps) => { },
   removeProduct: (productID: number) => { },
   clearCart: () => { }
 });
@@ -17,7 +17,7 @@ export const CartContextProvider = (props: CartContextProps) => {
   const [IDsList, setIDsList] = useState([] as Array<number>);
   const [products, setProducts] = useState([] as Array<any>);
 
-  const addProduct = (product: ProductProps) => {
+  const addProduct = (product: CartProductProps) => {
     if(IDsList.includes(product.id)) return
 
     let updatedProducts = [

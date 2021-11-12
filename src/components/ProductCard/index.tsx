@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Pressable, Image } from 'react-native';
 
 import { useCart } from '../../contexts/CartContext';
@@ -8,8 +8,11 @@ import ProductProps from '../../interfaces/Product';
 
 import commonStyles from '../../styles/commonStyles';
 import styles from './styles';
+import { FiMinus, FiPlus } from 'react-icons/fi';
 
 export default function ProductCard(props: ProductProps) {
+  const [quantity, setQuantity] = useState(1)
+
   const {
     IDsList,
     addProduct,
@@ -17,7 +20,10 @@ export default function ProductCard(props: ProductProps) {
   } = useCart()
   
   const onAdd = () => {
-    addProduct(props)
+    addProduct({
+      ...props,
+      quantity
+    })
 
     useAlert({
       title: "Adicionado",
@@ -32,6 +38,16 @@ export default function ProductCard(props: ProductProps) {
       title: "Removido",
       message: "Produto removido do carrinho"
     })
+  }
+
+  const minusQuantity = () => {
+    if(quantity === 1) return
+
+    setQuantity(quantity - 1)
+  }
+
+  const plusQuantity = () => {
+    setQuantity(quantity + 1)
   }
   
   const imageSource = props.image ?
@@ -52,6 +68,20 @@ export default function ProductCard(props: ProductProps) {
       <Text style={styles.price}>
         {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: props.currency }).format(props.price)}
       </Text>
+
+      {!IDsList.includes(props.id) &&
+        <View style={styles.quantityBox}>
+          <Pressable onPress={minusQuantity}>
+            <FiMinus size="18" color="#000" />
+          </Pressable>
+          <Text>
+            {quantity}
+          </Text>
+          <Pressable onPress={plusQuantity}>
+            <FiPlus size="18" color="#000" />
+          </Pressable>
+        </View>
+      }
 
       {IDsList.includes(props.id) ?
         <Pressable style={commonStyles.dangerButton}

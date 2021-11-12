@@ -7,20 +7,29 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 150,
-    marginBottom: 8
+    height: 150
   },
   name: {
     fontSize: 14,
     fontWeight: "bold",
     textAlign: "left",
-    marginBottom: 6
+    marginHorizontal: 6
   },
   price: {
     fontSize: 16,
     fontWeight: "500",
     textAlign: "left",
     marginBottom: 8
+  },
+  quantityBox: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 8
+  },
+  quantityText: {
+    fontWeight: "bold",
+    fontSize: 14
   }
 });
 
