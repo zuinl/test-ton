@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { View, Text, Pressable, Image } from 'react-native';
+import React, { useState } from 'react'
+import { View, Text, Pressable, Image } from 'react-native'
 
-import { useCart } from '../../contexts/CartContext';
-import useAlert from '../../utils/useAlert';
+import { useCart } from '../../contexts/CartContext'
+import useAlert from '../../utils/useAlert'
 
-import ProductProps from '../../interfaces/Product';
+import ProductProps from '../../interfaces/Product'
 
-import commonStyles from '../../styles/commonStyles';
-import styles from './styles';
-import { FiMinus, FiPlus } from 'react-icons/fi';
+import commonStyles from '../../styles/commonStyles'
+import styles from './styles'
+import { FiMinus, FiPlus } from 'react-icons/fi'
 
 export default function ProductCard(props: ProductProps) {
   const [quantity, setQuantity] = useState(1)
@@ -99,5 +99,5 @@ export default function ProductCard(props: ProductProps) {
         </Pressable>
       }
     </View>
-  );
+  )
 }

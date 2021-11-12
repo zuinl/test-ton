@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import styles from './styles'
-import { ScrollView, View } from 'react-native';
-import ProductCard from '../../components/ProductCard';
+import { ScrollView, View } from 'react-native'
+import ProductCard from '../../components/ProductCard'
 import axios from 'axios'
-import useAlert from '../../utils/useAlert';
+import useAlert from '../../utils/useAlert'
 
 interface ProductsScreenProps {
   route?: any,
@@ -47,5 +47,5 @@ export default function Products(props: ProductsScreenProps) {
         })}
       </ScrollView>
     </View>
-  );
+  )
 }

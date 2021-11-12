@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 const commonStyles = StyleSheet.create({
   primaryButton: {
@@ -18,6 +18,6 @@ const commonStyles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "500"
   }
-});
+})
 
 export default commonStyles

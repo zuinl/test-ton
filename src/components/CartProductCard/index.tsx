@@ -1,11 +1,15 @@
-import React from 'react';
-import { FiXCircle } from 'react-icons/fi';
-import { View, Text, Pressable, Image } from 'react-native';
-import { useCart } from '../../contexts/CartContext';
-import CartProductProps from '../../interfaces/CartProduct';
-import useAlert from '../../utils/useAlert';
+import React from 'react'
+import { View, Text, Pressable, Image } from 'react-native'
 
-import styles from './styles';
+import { useCart } from '../../contexts/CartContext'
+
+import CartProductProps from '../../interfaces/CartProduct'
+
+import useAlert from '../../utils/useAlert'
+
+import { FiXCircle } from 'react-icons/fi'
+
+import styles from './styles'
 
 export default function CartProductCard(props: CartProductProps) {
   const {
@@ -47,5 +51,5 @@ export default function CartProductCard(props: CartProductProps) {
         </View>
       </Pressable>
     </View>
-  );
+  )
 }

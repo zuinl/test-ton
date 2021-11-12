@@ -55,5 +55,5 @@ export default function Header(props: HeaderProps) {
         </View>
       </Pressable>
     </View>
-  );
+  )
 }

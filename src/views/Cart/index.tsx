@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import styles from './styles'
-import { ScrollView, View, Text, Pressable } from 'react-native';
-import { useCart } from '../../contexts/CartContext';
-import CartProductCard from '../../components/CartProductCard';
+import { ScrollView, View, Text, Pressable } from 'react-native'
+import { useCart } from '../../contexts/CartContext'
+import CartProductCard from '../../components/CartProductCard'
 
 export default function Cart() {
   const {
@@ -37,5 +37,5 @@ export default function Cart() {
         </ScrollView>
       </View>
     </View>
-  );
+  )
 }

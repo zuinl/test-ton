@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
-import CartProductProps from '../interfaces/CartProduct';
+import React, { createContext, useContext, useState } from 'react'
+import CartProductProps from '../interfaces/CartProduct'
 
 interface CartContextProps {
     children: any
@@ -66,7 +66,7 @@ export const CartContextProvider = (props: CartContextProps) => {
     >
       {props.children}
     </CartContext.Provider>
-  );
+  )
 }
 
 export const useCart = () => {
