@@ -2,12 +2,16 @@
   "name": "ton-test",
   "version": "1.0.0",
   "main": "./index.js",
+  "jest": {
+    "preset": "jest-expo"
+  },
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.6",
@@ -28,8 +32,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@testing-library/react-native": "^8.0.0",
+    "@types/jest": "^27.0.2",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
+    "jest-expo": "^43.0.1",
+    "react-test-renderer": "^17.0.2",
     "typescript": "~4.3.5"
   },
   "private": true

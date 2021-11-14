@@ -62,13 +62,15 @@ export default function ProductCard(props: ProductProps) {
       <Image
         style={styles.image}
         source={imageSource}
+        testID="product-image"
       />
 
       <Text style={styles.name}>
         {props.name}
       </Text>
 
-      <Text style={styles.price}>
+      <Text style={styles.price}
+      testID="product-price">
         {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: props.currency }).format(props.price)}
       </Text>
 
@@ -97,7 +99,8 @@ export default function ProductCard(props: ProductProps) {
         </Pressable>
       :
         <Pressable style={commonStyles.primaryButton}
-          onPress={onAdd}>
+          onPress={onAdd}
+          testID="add-cart-button">
           <Text style={commonStyles.buttonText}>
             Adicionar ao carrinho
           </Text>

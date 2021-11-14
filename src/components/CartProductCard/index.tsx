@@ -36,18 +36,21 @@ export default function CartProductCard(props: CartProductProps) {
       <Image
         style={styles.image}
         source={imageSource}
+        testID="product-image"
       />
 
       <Text style={styles.name}>
         {`${props.name} (${props.quantity})`}
       </Text>
 
-      <Text style={styles.price}>
+      <Text style={styles.price}
+        testID="product-price">
         {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: props.currency }).format(props.price * props.quantity)}
       </Text>
 
       <Pressable onPress={onRemove}
-        style={styles.iconBox}>
+        style={styles.iconBox}
+        testID="remove-icon">
         <View>
           <AntDesign name="closecircleo" size={28} color="red" />
         </View>

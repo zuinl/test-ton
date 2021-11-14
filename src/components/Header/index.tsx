@@ -35,7 +35,8 @@ export default function Header(props: HeaderProps) {
     <View style={styles.container}>
       {props.navigation?.canGoBack() &&
         <Pressable onPress={goBack}
-          style={styles.arrowBox}>
+          style={styles.arrowBox}
+          testID="go-back-icon">
           <View>
             <AntDesign name="arrowleft" size={30} color="#FFF" />
           </View>
@@ -43,7 +44,8 @@ export default function Header(props: HeaderProps) {
       }
 
       <Pressable onPress={onCartClick}
-        style={styles.cartIconBox}>
+        style={styles.cartIconBox}
+        testID="cart-icon-box">
         <View>
           <AntDesign name="shoppingcart" size={30} color="#FFF" />
 
